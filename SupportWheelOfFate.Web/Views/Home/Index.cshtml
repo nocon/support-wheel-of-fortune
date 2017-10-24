@@ -1,5 +1,5 @@
 ﻿<div id="rota">
-    <div v-bind:class="{ today: shift.isToday, past: shift.isPast, shift: true }" v-for="shift in rota.shifts">
+    <div v-bind:class="{ today: shift.isToday, past: shift.isPast, shift: true }" v-for="shift in rota.shiftPlan">
         {{ shift.date.toLocaleDateString() }}<br/>
         <div class="person" v-for="person in shift.people">
             {{ person.name }}

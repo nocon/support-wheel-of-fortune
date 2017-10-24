@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-    var data = { rota : { shifts: [] } };
+    var data = { rota : { shiftPlan: [] } };
     new Vue({
         el: '#rota',
         data: data
@@ -8,7 +8,7 @@
     //TODO: Remove the hardcoded url
     //TODO: Handle errors
     $.get("api/support/rota", function (rota) {
-        data.rota.shifts = convertToViewModel(rota.shifts);
+        data.rota.shiftPlan = convertToViewModel(rota.shiftPlan);
     })
 });
 
