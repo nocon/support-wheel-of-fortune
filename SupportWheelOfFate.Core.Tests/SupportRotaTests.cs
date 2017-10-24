@@ -81,7 +81,7 @@ namespace SupportWheelOfFate.Core.Tests
 
             [Theory]
             [MemberData(nameof(GetRandomFromsAndTos))]
-            public void GeneratesTheRightNumberOfShifts(DateTime from, DateTime to)
+            public void PlansTheRightNumberOfShifts(DateTime from, DateTime to)
             {
                 _unit.PlanShifts(from, to, _supportPeople);
                 Assert.Equal(GetCountOfWorkdaysInPeriod(from, to), _unit.ShiftPlan.Count);
@@ -101,12 +101,12 @@ namespace SupportWheelOfFate.Core.Tests
                 var random = new Random();
                 _unit.PlanShifts(from, to, _supportPeople);
                 
-                var shiftsBeforeSecondGeneration = new Dictionary<DateTime, List<SupportPerson>>(_unit.ShiftPlan);
+                var firstShiftPlan = new Dictionary<DateTime, List<SupportPerson>>(_unit.ShiftPlan);
                 _unit.PlanShifts(from, to.AddDays(random.Next(1000)), _supportPeople);
                 
-                foreach (var key in shiftsBeforeSecondGeneration.Keys)
+                foreach (var key in firstShiftPlan.Keys)
                 {
-                    Assert.Equal(shiftsBeforeSecondGeneration[key], _unit.ShiftPlan[key]);
+                    Assert.Equal(firstShiftPlan[key], _unit.ShiftPlan[key]);
                 }
             }
 
@@ -127,7 +127,7 @@ namespace SupportWheelOfFate.Core.Tests
 
             [Theory]
             [MemberData(nameof(GetRandomFromsAndTos))]
-            public void GeneratesOnlyWorkDayShifts(DateTime from, DateTime to)
+            public void PlansOnlyWorkDayShifts(DateTime from, DateTime to)
             {
                 _unit.PlanShifts(from, to, _supportPeople);
                 Assert.Empty(_unit.ShiftPlan.Keys.Where(s => 
