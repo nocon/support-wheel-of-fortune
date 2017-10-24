@@ -1,11 +1,11 @@
-First and foremost, there are some assumptions I had to make. Normally I would ask, but it was weekend... They are as follows:
+First and foremost, I've made some assumptions. Normally I would ask first, but it was weekend... They are as follows:
 - It's good to know support shifts in advance, to enable planning around them.
 - Monday-Friday work week.
 - Friday and Monday are not considered consecutive days.
 
 Front end employs jQuery and Vue to obtain data through the API and render with front-end templates. Saves time if API is already a requirement, and forms a good base for mobile clients (because API exposes everything web app needs to know, so most likely covers most mobile needs as well). Other than that, it's rudimentary. If I had time to afford, using a css framework would yield some easy wins (mobile friendliness among them).
 
-Mid tier is MVC (with very basic V). I picked .NET Core because it's fairly easy to deliver website and API in one project - monolith is a good starting point. I had to cut some corners: no viewmodels, as there is full overlap between domain and API interface for now.
+Mid tier is MVC (with very basic View). I've picked .NET Core because it's fairly quick to deliver website and API in one project - monolith is a good starting point. I had to cut some corners: no viewmodels, as there is full overlap between domain and API interface for now.
 
 DAL operates on json files included with the project. It's quick and simple, and performance is not an issue here. Of course, it's an awful idea for production app, unless you don't mind losing data stored with app files.
 
