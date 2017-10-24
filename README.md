@@ -9,7 +9,7 @@ Mid tier is MVC (with very basic View). I've picked .NET Core because it's fairl
 
 DAL operates on json files included with the project. It's quick and simple, and performance is not an issue here. Of course, it's an awful idea for production app, unless you don't mind losing data stored with app files.
 
-Design wise, I've spent most time figuring out how to reconciliate scheduling ahead with everyday life. Engineer taking a day off, employees being fired or hired all affect the schedule. The simplest usable solution I went with is to use keep the schedule reasonably short and rely on employees switching their shifts between them. If this project received more attention, these are possible extension points I accounted for in the design:
+Design wise, I've spent most time figuring out how to reconciliate scheduling ahead with everyday life. Engineer taking a day off, employees being fired or hired all affect the schedule. The simplest usable solution I went with is to keep the schedule reasonably short and rely on employees switching their shifts between them. If this project received more attention, here are possible extension points I accounted for in the design:
 - Schedule generator can easily consider employee availability when randomising shifts. Simple IsAvailable property on SupportPerson object can be populated from front end or HR system.
 - It's very easy to modify the generator to overwrite the existing schedule with minimal changes to shifts. Implementing this would permit scheduling far ahead (which may be unnecessary).
 - It should be fairly easy to extract business rules into their own classes, if they are to be modified or more are added.
