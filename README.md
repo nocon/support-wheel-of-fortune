@@ -1,4 +1,4 @@
-# Support Wheel of Fortune
+# Support Wheel of Fate
 
 
 First and foremost, I've made some assumptions. Normally I would ask first, but it was weekend... They are as follows:
